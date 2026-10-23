@@ -32,6 +32,7 @@
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
   <defs>
     <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-diag" viewBox="0 0 24 24"><path d="M7 17L17 7M8 7h9v9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
     <symbol id="i-up" viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
     <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
     <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15" rx="3" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3.5 10h17M8 3.5v3M16 3.5v3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
@@ -44,26 +45,32 @@
     <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-7.5-10A4.3 4.3 0 0112 7.6 4.3 4.3 0 0119.5 10c0 5.4-7.5 10-7.5 10z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
     <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
     <symbol id="i-chevron" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-hash" viewBox="0 0 24 24"><path d="M9 4L7 20M17 4l-2 16M4.5 9h16M3.5 15h16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="i-video" viewBox="0 0 24 24"><rect x="3" y="6" width="13" height="12" rx="3" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M16 10.5l5-3v9l-5-3z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+    <symbol id="i-sheet" viewBox="0 0 24 24"><rect x="4" y="3.5" width="16" height="17" rx="3" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M4 9.5h16M4 15h16M10 9.5v11" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+    <symbol id="i-send" viewBox="0 0 24 24"><path d="M21 4L10.5 14.5M21 4l-6.5 17-4-6.5L4 10.5 21 4z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8.5" r="3.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M2.5 19.5c.5-3.4 3-5 6.5-5s6 1.6 6.5 5M16 5.2a3.4 3.4 0 010 6.6M18 14.8c2 .5 3.2 2 3.5 4.7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0113 0c0 5.4-6.5 11-6.5 11z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="12" cy="10" r="2.3" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
   </defs>
 </svg>
 
-<!-- ============================ HEADER / NAVIGATION ============================ -->
+<!-- ============================ HEADER / FLOATING NAVIGATION ============================ -->
 <header class="site-header" id="top">
-  <div class="container nav">
-    <a class="logo" href="#home" aria-label="Md Nahid - back to top">Md Nahid<span class="logo-dot">.</span></a>
+  <div class="nav-shell">
+    <a class="logo" href="#home" aria-label="Md Nahid - back to top"><span class="logo-badge">MN</span>Md Nahid<span class="logo-dot">.</span></a>
 
     <nav class="nav-menu" id="nav-menu" aria-label="Main navigation">
       <ul>
-        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
         <li><a href="#services">Services</a></li>
         <li><a href="#portfolio">Portfolio</a></li>
-        <li><a href="#about">About</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-      <a class="btn btn-primary nav-cta-mobile" href="#contact" data-nav-close>Hire Me</a>
+      <a class="btn btn-primary nav-cta-mobile" href="#contact">Let's Talk</a>
     </nav>
 
-    <a class="btn btn-primary nav-cta" href="#contact">Hire Me</a>
+    <a class="btn btn-primary nav-cta" href="#contact">Let's Talk <svg class="icon" aria-hidden="true"><use href="#i-diag"/></svg></a>
 
     <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu">
       <span class="bars" aria-hidden="true"><span></span><span></span><span></span></span>
@@ -73,137 +80,126 @@
 
 <main id="main">
 
-<!-- ============================ HERO ============================ -->
-<section class="hero" id="home" aria-labelledby="hero-title">
-  <div class="container hero-grid">
-    <div class="hero-copy">
-      <p class="eyebrow">Social Media Management &amp; Content Strategy</p>
-      <h1 id="hero-title">Helping Brands Grow Through <span class="hl">Smarter Social Media.</span></h1>
-      <p class="lead">I help businesses build a strong social media presence through strategic content planning, creative designs, consistent management, and organic growth.</p>
+<!-- ============================ PAGE BANNER ============================ -->
+<section class="banner" id="home" aria-labelledby="banner-title">
+  <div class="container">
+    <h1 id="banner-title">About Me</h1>
+    <p class="crumbs" aria-label="Breadcrumb"><a href="#home">Home</a><svg class="icon" aria-hidden="true"><use href="#i-chevron"/></svg><span>About Me</span></p>
+  </div>
+</section>
 
-      <div class="btn-row">
-        <a class="btn btn-primary" href="#portfolio">View My Work <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-        <a class="btn btn-outline" href="#contact">Let's Work Together</a>
+<!-- ============================ ABOUT ============================ -->
+<section class="section" id="about" aria-labelledby="about-title">
+  <div class="container about-grid">
+    <div class="about-photo reveal">
+      <div class="photo-ring">
+        <img src="assets/images/profile.jpg" width="900" height="900" alt="Portrait of Md Nahid, Social Media Manager, wearing a black blazer and white shirt" decoding="async">
       </div>
-
-      <ul class="tag-list" aria-label="Main services">
-        <li>Facebook Management</li>
-        <li>Instagram Management</li>
-        <li>Content Planning</li>
-        <li>Organic Growth</li>
-      </ul>
+      <span class="dot dot-a" aria-hidden="true"></span>
+      <span class="dot dot-b" aria-hidden="true"></span>
     </div>
 
-    <!-- Illustrative composition (not real client data). Replace with real project images when ready. -->
-    <div class="hero-visual-wrap">
-      <div class="hero-visual" aria-hidden="true">
-        <div class="ring ring-1"></div>
-        <div class="ring ring-2"></div>
+    <div class="about-copy reveal">
+      <span class="pill">About Me</span>
+      <h2 id="about-title">Helping brands grow through smarter social media.</h2>
+      <p>I'm a Social Media Manager focused on helping businesses build a strong and consistent social media presence. I help organize social media content through content planning, creative post designs, profile management, content scheduling, and organic growth strategies.</p>
+      <p>My goal is to help brands communicate better with their audience and maintain a professional online presence through thoughtful content and consistent management.</p>
 
-        <div class="v-card v-stats">
-          <span class="v-label">Engagement overview</span>
-          <div class="bars-mini"><i style="--h:38%"></i><i style="--h:62%"></i><i style="--h:48%"></i><i style="--h:80%"></i><i style="--h:56%"></i><i style="--h:92%"></i><i style="--h:70%"></i></div>
-          <span class="v-note">Sample layout</span>
-        </div>
+      <dl class="info-card">
+        <div><dt>Name</dt><dd>Md Nahid</dd></div>
+        <div><dt>Role</dt><dd>Social Media Manager</dd></div>
+        <div><dt>Email</dt><dd><a data-link="email" data-text="email" href="#contact"></a></dd></div>
+        <div><dt>Fiverr</dt><dd><a data-link="fiverr" href="#contact" target="_blank" rel="noopener noreferrer">nahid_sh</a></dd></div>
+      </dl>
 
-        <div class="v-card v-post">
-          <div class="post-head"><span class="avatar"></span><span class="lines"><i></i><i></i></span></div>
-          <div class="post-art"><span>Your<br>Brand</span></div>
-          <div class="post-foot"><svg class="icon"><use href="#i-heart"/></svg><svg class="icon"><use href="#i-chat"/></svg><span class="lines"><i></i></span></div>
-        </div>
-
-        <div class="v-card v-plan">
-          <span class="v-label v-label-light">Content calendar</span>
-          <div class="cal-mini">
-            <i></i><i class="on"></i><i></i><i></i><i class="on"></i><i></i><i></i>
-            <i></i><i></i><i class="on"></i><i></i><i></i><i class="on"></i><i></i>
-            <i class="on"></i><i></i><i></i><i class="on"></i><i></i><i></i><i class="on"></i>
-          </div>
-        </div>
-
-        <div class="chip chip-notify"><svg class="icon"><use href="#i-check"/></svg> Post scheduled</div>
-        <div class="chip-round"><svg class="icon"><use href="#i-sprout"/></svg></div>
+      <div class="btn-row">
+        <a class="btn btn-primary" data-link="email" href="#contact">Contact Me <svg class="icon" aria-hidden="true"><use href="#i-diag"/></svg></a>
+        <a class="btn btn-outline" href="#portfolio">View My Work <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
       </div>
-      <p class="visual-caption">Illustrative preview</p>
     </div>
   </div>
 </section>
 
-<!-- ============================ FOCUS STRIP ============================ -->
-<section class="strip" aria-labelledby="strip-title">
+<!-- ============================ SKILLS ============================ -->
+<section class="section section-alt" id="skills" aria-labelledby="skills-title">
   <div class="container">
-    <p class="strip-title" id="strip-title">Built Around Better Social Media</p>
-    <ul class="strip-list">
-      <li>Content Strategy</li>
-      <li>Visual Design</li>
-      <li>Content Planning</li>
-      <li>Consistent Publishing</li>
-      <li>Organic Growth</li>
-    </ul>
+    <div class="section-head center reveal">
+      <h2 id="skills-title">My Work <span class="hl">Skills</span></h2>
+      <p class="section-sub">The tools and skills I use every day to plan, design and manage social media for brands.</p>
+    </div>
+
+    <div class="skill-grid">
+      <article class="skill-card reveal"><span class="skill-icon"><svg class="icon"><use href="#i-palette"/></svg></span><h3>Canva Design</h3><p>Posts, flyers, carousels</p></article>
+      <article class="skill-card reveal"><span class="skill-icon"><svg class="icon"><use href="#i-layout"/></svg></span><h3>Meta Business Suite</h3><p>Scheduling &amp; publishing</p></article>
+      <article class="skill-card reveal"><span class="skill-icon"><svg class="icon"><use href="#i-sheet"/></svg></span><h3>Google Sheets</h3><p>Planning &amp; tracking</p></article>
+      <article class="skill-card reveal"><span class="skill-icon"><svg class="icon"><use href="#i-calendar"/></svg></span><h3>Content Calendars</h3><p>7, 14 &amp; 30-day plans</p></article>
+      <article class="skill-card reveal"><span class="skill-icon"><svg class="icon"><use href="#i-hash"/></svg></span><h3>Hashtag Research</h3><p>Relevant, niche-focused tags</p></article>
+      <article class="skill-card reveal"><span class="skill-icon"><svg class="icon"><use href="#i-chat"/></svg></span><h3>Caption Writing</h3><p>Clear, on-brand copy</p></article>
+      <article class="skill-card reveal"><span class="skill-icon"><svg class="icon"><use href="#i-video"/></svg></span><h3>Reels Planning</h3><p>Ideas, hooks &amp; structure</p></article>
+      <article class="skill-card reveal"><span class="skill-icon"><svg class="icon"><use href="#i-users"/></svg></span><h3>Community Management</h3><p>Replies &amp; engagement</p></article>
+    </div>
   </div>
 </section>
 
 <!-- ============================ SERVICES ============================ -->
 <section class="section" id="services" aria-labelledby="services-title">
   <div class="container">
-    <div class="section-head reveal">
-      <span class="pill">My Services</span>
-      <h2 id="services-title">Everything Your Brand Needs to Show Up Better on Social Media.</h2>
+    <div class="section-head center reveal">
+      <h2 id="services-title">My <span class="hl">Services</span></h2>
       <p class="section-sub">Practical social media support designed around your business, audience, and content goals.</p>
     </div>
 
     <div class="service-grid">
-      <article class="service-card tone-a reveal">
-        <span class="service-icon"><svg class="icon"><use href="#i-layout"/></svg></span>
-        <h3>Social Media Management</h3>
-        <p>Keep your social media presence organized with thoughtful planning, consistent publishing, and brand-focused management.</p>
+      <article class="service-card reveal">
+        <header class="service-top"><span class="service-icon"><svg class="icon"><use href="#i-layout"/></svg></span><h3>Social Media Management</h3></header>
+        <p>Keep your presence organized with thoughtful planning, consistent publishing, and brand-focused management.</p>
         <ul>
           <li>Facebook Page Management</li>
           <li>Instagram Management</li>
           <li>Content Scheduling &amp; Publishing</li>
         </ul>
+        <a class="service-go" href="#contact" aria-label="Discuss Social Media Management"><svg class="icon" aria-hidden="true"><use href="#i-diag"/></svg></a>
       </article>
 
-      <article class="service-card tone-b reveal">
-        <span class="service-icon"><svg class="icon"><use href="#i-calendar"/></svg></span>
-        <h3>Content Planning</h3>
+      <article class="service-card reveal">
+        <header class="service-top"><span class="service-icon"><svg class="icon"><use href="#i-calendar"/></svg></span><h3>Content Planning</h3></header>
         <p>Plan your content with a clear direction instead of posting without a strategy.</p>
         <ul>
           <li>Social Media Content Planning</li>
           <li>Content Calendar Creation</li>
           <li>Reels Content Planning</li>
         </ul>
+        <a class="service-go" href="#contact" aria-label="Discuss Content Planning"><svg class="icon" aria-hidden="true"><use href="#i-diag"/></svg></a>
       </article>
 
-      <article class="service-card tone-c reveal">
-        <span class="service-icon"><svg class="icon"><use href="#i-palette"/></svg></span>
-        <h3>Social Media Design</h3>
-        <p>Create clean, engaging visuals that communicate your message and maintain a consistent brand identity.</p>
+      <article class="service-card reveal">
+        <header class="service-top"><span class="service-icon"><svg class="icon"><use href="#i-palette"/></svg></span><h3>Social Media Design</h3></header>
+        <p>Clean, engaging visuals that communicate your message and keep a consistent brand identity.</p>
         <ul>
           <li>Social Media Post Design</li>
           <li>Carousel Post Design</li>
         </ul>
+        <a class="service-go" href="#contact" aria-label="Discuss Social Media Design"><svg class="icon" aria-hidden="true"><use href="#i-diag"/></svg></a>
       </article>
 
-      <article class="service-card tone-d reveal">
-        <span class="service-icon"><svg class="icon"><use href="#i-sprout"/></svg></span>
-        <h3>Organic Growth Support</h3>
-        <p>Build a stronger social media presence through relevant content, consistent activity, and audience-focused improvements.</p>
+      <article class="service-card reveal">
+        <header class="service-top"><span class="service-icon"><svg class="icon"><use href="#i-sprout"/></svg></span><h3>Organic Growth Support</h3></header>
+        <p>Build a stronger presence through relevant content, consistent activity, and audience-focused improvements.</p>
         <ul>
           <li>Instagram Profile Optimization</li>
           <li>Organic Instagram Growth Support</li>
         </ul>
+        <a class="service-go" href="#contact" aria-label="Discuss Organic Growth Support"><svg class="icon" aria-hidden="true"><use href="#i-diag"/></svg></a>
       </article>
     </div>
   </div>
 </section>
 
 <!-- ============================ PORTFOLIO ============================ -->
-<section class="section section-tight" id="portfolio" aria-labelledby="portfolio-title">
+<section class="section section-alt" id="portfolio" aria-labelledby="portfolio-title">
   <div class="container">
-    <div class="section-head reveal">
-      <span class="pill">Selected Work</span>
-      <h2 id="portfolio-title">Creative Work. Thoughtful Planning. Clear Presentation.</h2>
+    <div class="section-head center reveal">
+      <h2 id="portfolio-title">Selected <span class="hl">Work</span></h2>
       <p class="section-sub">Explore selected social media designs, content planning samples, and creative projects.</p>
     </div>
 
@@ -213,7 +209,7 @@
     <div class="pf-grid" id="pf-grid" aria-live="polite"></div>
 
     <div class="pf-more">
-      <button class="btn btn-outline" id="pf-more" type="button" hidden>Show More Work</button>
+      <button class="btn btn-primary" id="pf-more" type="button" hidden>Show More Work</button>
     </div>
 
     <p class="pf-note">Projects labelled "Sample Project" are self-created concept work, not paid client campaigns.</p>
@@ -221,88 +217,27 @@
 </section>
 
 <!-- ============================ PROCESS ============================ -->
-<section class="process" id="process" aria-labelledby="process-title">
-  <div class="container process-grid">
-    <div class="dash reveal" aria-hidden="true">
-      <span class="dash-watermark">PLAN</span>
-      <div class="dash-card">
-        <div class="dash-top">
-          <span class="dash-title">This week's content plan</span>
-          <span class="dash-badge">Sample</span>
-        </div>
-        <ul class="dash-rows">
-          <li><span class="d-day">Mon</span><span class="d-bar" style="--w:78%"></span><span class="d-tag">Post</span></li>
-          <li><span class="d-day">Tue</span><span class="d-bar" style="--w:46%"></span><span class="d-tag">Reel</span></li>
-          <li><span class="d-day">Wed</span><span class="d-bar" style="--w:62%"></span><span class="d-tag">Carousel</span></li>
-          <li><span class="d-day">Thu</span><span class="d-bar" style="--w:34%"></span><span class="d-tag">Story</span></li>
-          <li><span class="d-day">Fri</span><span class="d-bar" style="--w:70%"></span><span class="d-tag">Post</span></li>
-        </ul>
-        <div class="dash-actions">
-          <span class="d-pill">Plan</span><span class="d-pill">Create</span><span class="d-pill">Publish</span>
-          <span class="d-plus"><svg class="icon"><use href="#i-check"/></svg></span>
-        </div>
-      </div>
+<section class="section" id="process" aria-labelledby="process-title">
+  <div class="container">
+    <div class="section-head center reveal">
+      <h2 id="process-title">My Simple <span class="hl">Process</span></h2>
+      <p class="section-sub">Five clear steps from first message to better content.</p>
     </div>
-
-    <div class="process-copy">
-      <h2 id="process-title" class="reveal">A Simple Process for Better Social Media.</h2>
-      <ol class="steps">
-        <li class="reveal"><span class="step-num">1</span><div><h3>Understand</h3><p>Learn about the business, its target audience, goals, and existing social media presence.</p></div></li>
-        <li class="reveal"><span class="step-num">2</span><div><h3>Plan</h3><p>Develop relevant content ideas and organize them in a practical content calendar.</p></div></li>
-        <li class="reveal"><span class="step-num">3</span><div><h3>Create</h3><p>Create social media content according to the brand's needs and style.</p></div></li>
-        <li class="reveal"><span class="step-num">4</span><div><h3>Schedule &amp; Publish</h3><p>Schedule and publish approved content according to the agreed workflow.</p></div></li>
-        <li class="reveal"><span class="step-num">5</span><div><h3>Review &amp; Improve</h3><p>Review available performance data and find practical ways to improve future content.</p></div></li>
-      </ol>
-    </div>
-  </div>
-</section>
-
-<!-- ============================ ABOUT ============================ -->
-<section class="section" id="about" aria-labelledby="about-title">
-  <div class="container about-grid">
-    <div class="about-photo reveal">
-      <div class="photo-frame">
-        <img src="assets/images/profile.jpg" width="900" height="900" alt="Portrait of Md Nahid, Social Media Manager, wearing a black blazer and white shirt" loading="lazy" decoding="async">
-      </div>
-      <span class="photo-chip"><svg class="icon"><use href="#i-check"/></svg> Social Media Manager</span>
-    </div>
-
-    <div class="about-copy reveal">
-      <span class="pill">About Me</span>
-      <h2 id="about-title">Hi, I'm Md Nahid.</h2>
-      <p>I'm a Social Media Manager focused on helping businesses build a strong and consistent social media presence. I help organize social media content through content planning, creative post designs, profile management, content scheduling, and organic growth strategies.</p>
-      <p>My goal is to help brands communicate better with their audience and maintain a professional online presence through thoughtful content and consistent management.</p>
-
-      <h3 class="mini-title">What I do</h3>
-      <ul class="chips">
-        <li>Facebook Page Management</li>
-        <li>Instagram Management</li>
-        <li>Content Planning</li>
-        <li>Content Calendars</li>
-        <li>Post &amp; Carousel Design</li>
-        <li>Reels Content Planning</li>
-        <li>Scheduling &amp; Publishing</li>
-        <li>Instagram Profile Optimization</li>
-      </ul>
-
-      <h3 class="mini-title">Tools I use</h3>
-      <ul class="chips chips-tools">
-        <li>Canva</li>
-        <li>Meta Business Suite</li>
-        <li>Google Sheets</li>
-      </ul>
-
-      <a class="btn btn-primary" href="#contact">Contact Me <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-    </div>
+    <ol class="steps">
+      <li class="step reveal"><span class="step-num">1</span><h3>Understand</h3><p>Learn about the business, its target audience, goals, and existing social media presence.</p></li>
+      <li class="step reveal"><span class="step-num">2</span><h3>Plan</h3><p>Develop relevant content ideas and organize them in a practical content calendar.</p></li>
+      <li class="step reveal"><span class="step-num">3</span><h3>Create</h3><p>Create social media content according to the brand's needs and style.</p></li>
+      <li class="step reveal"><span class="step-num">4</span><h3>Schedule &amp; Publish</h3><p>Schedule and publish approved content according to the agreed workflow.</p></li>
+      <li class="step reveal"><span class="step-num">5</span><h3>Review &amp; Improve</h3><p>Review available performance data and find practical ways to improve future content.</p></li>
+    </ol>
   </div>
 </section>
 
 <!-- ============================ INDUSTRIES ============================ -->
-<section class="section section-tight" id="industries" aria-labelledby="industries-title">
+<section class="section section-alt" id="industries" aria-labelledby="industries-title">
   <div class="container">
-    <div class="section-head reveal">
-      <span class="pill">Industries</span>
-      <h2 id="industries-title">Industries I Can Support</h2>
+    <div class="section-head center reveal">
+      <h2 id="industries-title">Industries I Can <span class="hl">Support</span></h2>
       <p class="section-sub">The kinds of businesses I focus on, and the content that tends to suit them.</p>
     </div>
 
@@ -317,11 +252,10 @@
 </section>
 
 <!-- ============================ FAQ ============================ -->
-<section class="section section-tight" id="faq" aria-labelledby="faq-title">
+<section class="section" id="faq" aria-labelledby="faq-title">
   <div class="container faq-wrap">
-    <div class="section-head reveal">
-      <span class="pill">FAQ</span>
-      <h2 id="faq-title">Common Questions</h2>
+    <div class="section-head center reveal">
+      <h2 id="faq-title">Common <span class="hl">Questions</span></h2>
     </div>
 
     <div class="faq-list reveal">
@@ -390,24 +324,24 @@
 <footer class="site-footer">
   <div class="container footer-grid">
     <div class="footer-brand">
-      <a class="logo" href="#home">Md Nahid<span class="logo-dot">.</span></a>
+      <a class="logo" href="#home"><span class="logo-badge">MN</span>Md Nahid<span class="logo-dot">.</span></a>
       <p class="footer-role">Social Media Manager</p>
       <p class="footer-tag">Helping businesses build a better social media presence.</p>
     </div>
 
     <nav aria-label="Footer navigation">
-      <h2 class="footer-title">Explore</h2>
+      <h2 class="footer-title">Navigation</h2>
       <ul>
-        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
         <li><a href="#services">Services</a></li>
         <li><a href="#portfolio">Portfolio</a></li>
-        <li><a href="#about">About</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
 
     <div>
-      <h2 class="footer-title">Get in touch</h2>
+      <h2 class="footer-title">Contact</h2>
       <ul>
         <li><a data-link="fiverr" href="#contact" target="_blank" rel="noopener noreferrer">Fiverr Profile</a></li>
         <li><a data-link="email" data-text="email" href="#contact"></a></li>
