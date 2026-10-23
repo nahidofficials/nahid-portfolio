@@ -106,6 +106,8 @@ const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)
 
   const ALL = "All Work";
   let activeCategory = ALL;
+  // Homepage preview: <div id="pf-grid" data-limit="3"> shows only the first 3 projects (no filters, no "Show More").
+  const previewLimit = Number(grid.dataset.limit) || 0;
   let visibleCount = PORTFOLIO_PAGE_SIZE;
   let lbIndex = 0;
   let lastFocus = null;
@@ -135,7 +137,7 @@ const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)
   function buildFilters() {
     filterBox.textContent = "";
     // A single category makes filters pointless, so hide the bar until there are two or more.
-    if (categories.length <= 2) { filterBox.hidden = true; return; }
+    if (previewLimit || categories.length <= 2) { filterBox.hidden = true; return; }
     categories.forEach((cat) => {
       const btn = el("button", { class: "filter-btn", type: "button", text: cat, "aria-pressed": String(cat === activeCategory) });
       btn.addEventListener("click", () => {
@@ -180,8 +182,8 @@ const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)
     if (!list.length) {
       grid.appendChild(el("p", { class: "pf-note", text: "No projects in this category yet." }));
     }
-    list.slice(0, visibleCount).forEach((item, i) => grid.appendChild(card(item, i)));
-    moreBtn.hidden = list.length <= visibleCount;
+    list.slice(0, previewLimit || visibleCount).forEach((item, i) => grid.appendChild(card(item, i)));
+    moreBtn.hidden = previewLimit ? true : list.length <= visibleCount;
   }
 
   moreBtn.addEventListener("click", () => {

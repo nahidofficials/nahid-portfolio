@@ -4,7 +4,8 @@ A responsive portfolio website built with plain HTML, CSS and JavaScript. No fra
 
 ```text
 nahid-portfolio/
-├── index.html            page content (all sections)
+├── index.html            home page (About, Skills, Services, 3-design preview, ...)
+├── portfolio.html        separate page with ALL designs (filters + larger view)
 ├── style.css             design (colors are at the top)
 ├── script.js             behavior + your contact links (top of file)
 ├── portfolio-data.js     your portfolio projects (edit this to add work)
