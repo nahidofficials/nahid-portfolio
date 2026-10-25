@@ -1,113 +1,68 @@
 # Md Nahid | Social Media Manager Portfolio
 
-A responsive portfolio website built with plain HTML, CSS and JavaScript. No frameworks, no build step, no backend. It is ready for GitHub Pages.
+Plain HTML, CSS and JavaScript. No frameworks, no build step. Works on GitHub Pages.
 
 ```text
 nahid-portfolio/
-├── index.html            home page (About, Skills, Services, 3-design preview, ...)
-├── portfolio.html        separate page with ALL designs (filters + larger view)
-├── style.css             design (colors are at the top)
-├── script.js             behavior + your contact links (top of file)
-├── portfolio-data.js     your portfolio projects (edit this to add work)
-├── tools/import_portfolio.py   optional helper to import many images at once
+├── index.html              Home (hero, short skills preview, 3-design preview, About, Contact)
+├── portfolio.html          All designs (filters + larger view)
+├── skills/
+│   ├── index.html          Skills overview  ->  /skills/
+│   └── <skill-name>/index.html   One page per skill  ->  /skills/content-planning/ ...
+├── 404.html                "Page not found" page (GitHub Pages uses it automatically)
+├── skills-data.js          ALL skill content (edit text, tools, steps here)
+├── portfolio-data.js       Your portfolio projects
+├── site.js                 Contact links, menu, icons, header/footer
+├── skills.js               Builds skill cards and skill pages from skills-data.js
+├── portfolio.js            Portfolio grid, filters, larger-image viewer
+├── style.css               Design (colors at the top)
 └── assets/
     ├── favicon.png
     └── images/
-        ├── profile.jpg   your photo (About section)
-        └── portfolio/    your design images go here
+        ├── profile.jpg     Your photo (home hero)
+        └── portfolio/      Your design images
 ```
 
-## 1. Preview on your computer
+## 1. Preview
+Double-click `index.html`, or run `python -m http.server 8000` and open `http://localhost:8000`.
 
-Double-click `index.html`, or run `python -m http.server 8000` in this folder and open `http://localhost:8000`.
+## 2. Edit a skill (text, tools, steps)
+Open `skills-data.js`. Each skill is one block: `title`, `short`, `intro`, `approach`, `includes`, `workflow`, `tools`, `portfolioCategories`, `cta`. Change the text and save. The overview card and the skill page both update.
+Only list tools and services you can genuinely deliver. Check the `tools` lists once, they are starting suggestions.
 
-## 2. Add your portfolio designs (do this first)
+## 3. Add a new skill
+1. Add a new block to `skills-data.js` (copy an existing one, give it a new `slug`).
+2. Copy any folder inside `skills/` (for example `skills/copywriting/`) and rename it to the same slug.
+3. Inside the copied `index.html`, change `data-skill="..."`, the `<title>`, and the `description` / `og:` text.
+The page appears on the Skills overview automatically.
 
-Your designs are in the Google Drive folder "Nahid's Design". They are not inside this project yet, so the Portfolio section currently shows clearly marked "Add image" placeholders.
+## 4. Show portfolio examples on a skill page
+Add a project in `portfolio-data.js` and give it a `category`. In `skills-data.js`, list that category under the skill's `portfolioCategories`. Skills without a match show an editable "Examples coming soon" box.
 
-**Fast way (all designs at once):**
-1. Download the Drive folder and put the images in a new folder named `portfolio-source/` next to `index.html`.
-2. Run `pip install pillow`, then `python tools/import_portfolio.py`.
-3. It removes duplicates, shrinks images to about 1080 px wide, saves them as `assets/images/portfolio/design-01.jpg`, `design-02.jpg`... and rewrites `portfolio-data.js`.
-4. Open `portfolio-data.js` and change titles, categories and descriptions. Do not run the script again afterwards or it will overwrite your edits.
+## 5. Add your portfolio designs
+Copy images to `assets/images/portfolio/` and add a block to `portfolio-data.js` (title, category, image, alt, description, label, url).
+Use label "Sample Project" for self-created work and "Client Project" only for real client work you may show.
+The home page shows the first 3 projects (change `data-limit="3"` in `index.html`). `portfolio.html` shows all.
 
-**Manual way (one project):** copy a JPG into `assets/images/portfolio/`, then add a block in `portfolio-data.js`:
+## 6. Contact links, menu and icons
+- Fiverr, email, WhatsApp, LinkedIn: edit `SITE_LINKS` at the top of `site.js`. WhatsApp and LinkedIn stay hidden until filled.
+- Menu: edit the `NAV` list in `site.js` (one place, used on every page).
+- Icons: Lucide-style SVGs listed in `ICONS` in `site.js`. Copy a new one from https://lucide.dev and set `icon: "name"` in `skills-data.js`.
 
-```js
-{
-  title: "Skincare Carousel",
-  category: "Carousel Posts",
-  image: "assets/images/portfolio/skincare-carousel.jpg",
-  alt: "Skincare carousel post design",
-  description: "A 5-slide educational carousel.",
-  label: "Sample Project",
-  url: ""
-}
-```
+## 7. Colors and fonts
+The first block in `style.css` (`:root`) holds every color (navy, blue, soft backgrounds). Font: Manrope with a system fallback.
 
-- **category**: filter buttons are created automatically from the categories you use. Suggested: Social Media Designs, Carousel Posts, Reels, Content Calendars, Instagram Feed.
-- **label**: use "Sample Project" for self-created work. Use "Client Project" only for real client work you may show.
-- **url**: optional link to a full project (Behance, Canva, Drive...). Leave `""` for none.
-- **Image size**: 4:5 portrait (for example 1080 x 1350 px) looks best. Other shapes are cropped on the card and shown in full when clicked.
-- To remove a project, delete its block. To replace an image, overwrite the file with the same name.
+## 8. Publish on GitHub Pages
+1. Create a public repository and upload everything in this folder (`index.html` must be at the top level).
+2. Settings > Pages > Deploy from a branch > `main` / `(root)` > Save.
+3. Each skill has its own folder, so `/skills/content-planning/` works when opened directly or refreshed. `404.html` handles wrong links.
+4. Custom domain (optional): Settings > Pages > Custom domain, then add the DNS records GitHub shows. After the domain works, you can add a canonical link and `og:url`.
+Keep your existing domain settings (including any `CNAME` file) as they are, and do not delete it when uploading.
 
-## 3. Change links and contact details
-
-Open `script.js` and edit `SITE_LINKS` at the top:
-
-```js
-const SITE_LINKS = {
-  fiverr: "https://www.fiverr.com/sellers/nahid_sh",
-  email: "nahidmarketing007@gmail.com",
-  whatsapp: "",   // add a wa.me link to show a WhatsApp item
-  linkedin: ""    // add your profile URL to show a LinkedIn item
-};
-```
-
-Every Fiverr and email button on the page uses these values. WhatsApp and LinkedIn stay hidden until you fill them in.
-
-## 4. Change text
-
-All text is in `index.html`. Each section is wrapped in a comment such as `<!-- SERVICES -->`, so you can edit one section without touching the others. Search for the words you want to change (headline, service names, FAQ answers, etc.).
-
-## 5. Change colors and fonts
-
-Open `style.css`. The first block (`:root`) holds every color:
-
-```css
---color-primary: #B7F51B;    /* lime */
---color-dark-green: #087443;
---color-navy: #172C49;
---color-background: #F4F5EF;
-```
-
-Change a value and the whole site updates. `--color-lime-text` is a darker lime used for green text on light backgrounds so it stays readable. The font is Manrope with a system-font fallback (`--font-main`).
-
-## 6. Change images
-
-- Profile photo: replace `assets/images/profile.jpg` (square, about 900 x 900 px).
-- Favicon: replace `assets/favicon.png`.
-- Keep the same file name, or update the name in `index.html`.
-
-## 7. Publish on GitHub Pages
-
-1. Create a GitHub account and click **New repository**. Name it for example `nahid-portfolio`, keep it **Public**, and create it.
-2. Click **Add file > Upload files**. Upload everything inside the project folder (so `index.html` is at the top level of the repository), then **Commit changes**. Do not upload the `portfolio-source/` folder if it contains large originals.
-3. Open the repository **Settings > Pages**.
-4. Under **Build and deployment**, set Source to **Deploy from a branch**, choose branch `main` and folder `/ (root)`, then **Save**.
-5. Wait one to two minutes. GitHub shows your site address at the top of the Pages screen.
-6. Open that address on your computer and on your phone and check the list below.
-
-### Using nahidofficial.cyou (optional)
-In **Settings > Pages > Custom domain**, enter your domain and save, then add the DNS records at your domain registrar exactly as shown in GitHub's current documentation ("Managing a custom domain for your GitHub Pages site"). DNS can take time to update. Enable **Enforce HTTPS** once GitHub allows it. After the domain works, you can add a canonical link and `og:url` to `index.html`.
-
-## 8. Final checklist after publishing
-
-- [ ] The site opens from the GitHub Pages address, and the photo and designs show (no broken images)
-- [ ] Menu links scroll to the right sections, and the mobile menu opens and closes
-- [ ] Portfolio filters work (if you have two or more categories), "Show More Work" works, and the larger-image view opens and closes
-- [ ] "Hire Me on Fiverr" opens your Fiverr profile
-- [ ] "Contact Me" and the email link open a new email to your address
-- [ ] Projects are labelled truthfully ("Sample Project" or "Client Project")
+## 9. Checklist after publishing
+- [ ] Photo and designs show (no broken images)
+- [ ] Menu works on desktop and mobile; the active menu item is highlighted
+- [ ] The Skills page shows 10 cards; every card opens its own page; "Back to all skills" works
+- [ ] Open a skill page directly and refresh it (no error)
+- [ ] Hire Me on Fiverr and Contact Me open the right place
 - [ ] Nothing is cut off on a phone, and there is no sideways scrolling
-- [ ] The copyright year in the footer is correct
